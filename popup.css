@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #214ba5;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px 150px;
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+main {
+  height: 60vw;
+}
+
+ul#youtube-features-list > li {
+  color: #000000;
+  font-family: "Open Sans", sans-serif;
+  width: 80vw;
+  margin: auto;
+  font-size: 1.2em;
+  padding: 2px 5px;
+  letter-spacing: 0.6px;
+  font-weight: 500;
+  line-height: 1em;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+}
+
+.feature-request-box > button,
+.report-issue-box > button {
+  color: #3d3b3b;
+  padding: 10px;
+  margin: 5px;
+  font-size: 1em;
+  font-weight: 550;
+  border: 2px solid #0767f4;
+  border-radius: 6px;
+}
+
+.feature-request-box > button:hover,
+.report-issue-box > button:hover {
+  background-color: #ffffff;
+  color: #2565e4;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.for-developers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.for-developers > button {
+  background-color: #1f1f1f;
+  color: #e2e5ec;
+  padding: 15px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 0.4px;
+}
+
+.for-developers > button:hover {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+}
