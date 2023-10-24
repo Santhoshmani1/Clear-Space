@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Clear Space",
+  "version": "1.0.0",
+  "description": "Clear space helps users to remove their distractions and helps them to focus on the productive things that matter.",
+  "permissions": [
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["scripts/main.js"],
+      "css": ["popup.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Clear Space"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      }
+    ]
+  }
+}
