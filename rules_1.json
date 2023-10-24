@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "priority": 100,
+    "action": { "type": "redirect", "redirect": { "url": "https://example.com" } },
+    "condition": {
+      "urlFilter": "*youtube.com/shorts/*",
+      "initiatorDomains" : ["youtube.com"],
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
