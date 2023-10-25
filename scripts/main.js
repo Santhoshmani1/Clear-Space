@@ -1,5 +1,7 @@
 (() => {
   chrome.runtime.onMessage.addListener((obj, sender, response) => {
+    // listening for tab switches from background.js 
+    // To access Youtube main page , watch page and shorts page.
     const { page } = obj;
     console.log("on " + page + " page");
     if (page == "watch") {
@@ -27,7 +29,7 @@ function cleanWatchPage() {
 
 function cleanHomePage() {
   // Removing the tags container, reels-shelfs
-  // and shorts navigatio-item from DOM
+  // and shorts navigation-item from DOM
 
   const chipsContainer = document.querySelector("#chips-wrapper");
   if (chipsContainer) {
@@ -52,14 +54,19 @@ function cleanHomePage() {
   }
 
   const miniShorts = document.querySelector(
-    'ytd-mini-guide-entry-renderer[title="Shorts"]'
+    '.ytd-mini-guide-entry-renderer[title="Shorts"]'
   );
   if (miniShorts) {
     miniShorts.remove();
   }
 
-  const navItems = document.querySelectorAll("#items>ytd-guide-entry-renderer");
-  navItems[1].remove(); // the shorts Item is the second item in the first guide entry renderer.
+  setTimeout(() => {
+    const navItems = document.querySelectorAll(
+      "#items>ytd-guide-entry-renderer"
+    );
+    console.log(navItems);
+    navItems[1].remove(); // the shorts Item is the second in the first guide entry renderer.
+  }, 2000);
 }
 
 setTimeout(() => {
