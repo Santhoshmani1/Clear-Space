@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Clear Space",
-  "version": "1.0.0",
-  "description": "Clear space helps users to remove their distractions and helps them to focus on the productive things that matter.",
+  "version": "0.0.1",
+  "description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
   "permissions": [
     "declarativeNetRequestWithHostAccess",
     "declarativeNetRequest",
