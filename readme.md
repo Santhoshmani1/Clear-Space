@@ -1,4 +1,4 @@
-## Clean space
+## Clear space
 
 ## What is Clear Space ? 
 
@@ -34,3 +34,7 @@ To install Clear Space in your browser, follow the steps:
 - Making the extension accessible for firefox and other browsers as well.
 - Increasing functionality for other major social media platforms.
 - Feel free to raise an issue or simply requesting an improvement.
+
+
+## LICENSE
+Clear Space is licensed under the MIT License. See the LICENSE file for more information.
