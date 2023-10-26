@@ -3,6 +3,13 @@
   "name": "Clear Space",
   "version": "0.0.1",
   "description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
+  "icons":{
+    "16":"images/icon.png",
+    "32":"images/icon.png",
+    "48":"images/icon.png",
+    "64":"images/icon.png",
+    "128":"images/icon.png"
+  },
   "permissions": [
     "declarativeNetRequestWithHostAccess",
     "declarativeNetRequest",
