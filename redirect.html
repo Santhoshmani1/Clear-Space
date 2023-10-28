@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You have been redirected</title>
+    <link rel="icon" type="image/x-icon" href="images/icon.png" />
+  </head>
+  <body>
+    <style type="text/css">
+      body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+          "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        color: #214ba5;
+      }
+      p {
+        width: 80%;
+        text-align: center;
+      }
+      button {
+        border: 2px solid #0767f4;
+        color: #069aed;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 6px;
+        width: 50%;
+        letter-spacing: 1px;
+      }
+      button:hover {
+        background-color: #ffffff;
+        color: #2565e4;
+        cursor: pointer;
+        transition-duration: 300ms;
+      }
+      @media (max-width: 700px) {
+        div {
+          margin: 0 auto;
+          width: auto;
+        }
+      }
+    </style>
+    <div>
+      <h1>You have been redirected!</h1>
+      <p>
+        You have been redirected away from the shorts page by Clear Space
+        browser extension.
+        <br /><br />
+        If you wish to return please click the button below:
+      </p>
+      <button onclick="history.back()">Return</button>
+    </div>
+  </body>
+</html>
