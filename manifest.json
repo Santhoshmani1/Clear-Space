@@ -40,5 +40,11 @@
         "path": "rules_1.json"
       }
     ]
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["redirect.html"],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ]
 }

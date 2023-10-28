@@ -82,6 +82,6 @@ function blockShortsPage() {
       "#page-manager > ytd-shorts > div.navigation-container.style-scope.ytd-shorts"
     );
     shorts.remove();
-    window.location.href = "https://www.example.com";
+    document.location.href = "redirect.html";
   }, 1000);
 }
