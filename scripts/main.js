@@ -1,6 +1,6 @@
 (() => {
   chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    // listening for tab switches from background.js 
+    // listening for tab switches from background.js
     // To access Youtube main page , watch page and shorts page.
     const { page } = obj;
     console.log("on " + page + " page");
@@ -48,7 +48,7 @@ function cleanHomePage() {
   }
 
   const shortsNavItem = document.querySelector("#endpoint[title='Shorts']");
-  if (shortsNavItem) {
+  if (shortsNavItem && shortsNavItem.getAttribute("aria-label") === "Shorts") {
     shortsNavItem.remove();
     console.log("removed shorts nav item successfully");
   }
@@ -65,7 +65,9 @@ function cleanHomePage() {
       "#items>ytd-guide-entry-renderer"
     );
     console.log(navItems);
-    navItems[1].remove(); // the shorts Item is the second in the first guide entry renderer.
+    if (navItems[1].getAttribute("aria-label") === "Shorts") {
+      navItems[1].remove(); // the shorts Item is the second in the first guide entry renderer.
+    }
   }, 2000);
 }
 
