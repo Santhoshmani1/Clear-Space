@@ -16,6 +16,11 @@ chrome.tabs.onUpdated.addListener((tab, tabId) => {
       console.log("main page", tabId.url);
       chrome.tabs.sendMessage(tab, { page: "home" });
     }
+
+    else if(tabId.url.includes("instagram.com/reels")){
+      console.log("instagram reels page");
+      chrome.tabs.sendMessage(tab, {page:"reels"})
+    }
     
   }
 

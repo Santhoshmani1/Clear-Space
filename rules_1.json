@@ -8,5 +8,15 @@
       "initiatorDomains" : ["youtube.com"],
       "resourceTypes": ["main_frame"]
     }
+  },
+  {
+    "id":2,
+    "priority":99,
+    "action":{"type":"redirect", "redirect":{"extensionPath":"/redirect.html"}},
+    "condition":{
+      "urlFilter":"instagram.com/reels/*",
+      "initiatorDomains":["instagram.com"],
+      "resourceTypes":["main_frame"]
+    }
   }
 ]

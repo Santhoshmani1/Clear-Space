@@ -17,13 +17,13 @@
     "scripting",
     "tabs"
   ],
-  "host_permissions": ["https://*.youtube.com/*"],
+  "host_permissions": ["https://*.youtube.com/*","https://.instagram.com/*"],
   "background": {
     "service_worker": "scripts/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://*.youtube.com/*"],
+      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"],
       "js": ["scripts/main.js"],
       "css": ["popup.css"]
     }
@@ -44,7 +44,7 @@
   "web_accessible_resources": [
     {
       "resources": ["redirect.html"],
-      "matches": ["https://*.youtube.com/*"]
+      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"]
     }
   ]
 }

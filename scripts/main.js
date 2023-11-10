@@ -10,6 +10,8 @@
       cleanHomePage();
     } else if (page == "shorts") {
       blockShortsPage();
+    } else if (page == "reels") {
+      blockReelsPage();
     }
     cleanHomePage();
   });
@@ -86,4 +88,8 @@ function blockShortsPage() {
     shorts.remove();
     document.location.href = "redirect.html";
   }, 1000);
+}
+
+function blockReelsPage() {
+  document.location.href = "redirect.html";
 }
