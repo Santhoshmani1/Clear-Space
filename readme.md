@@ -8,6 +8,13 @@ Clear Space is a chrome extension which helps you to remove distractions from sh
 
 ---
 
+<h3 align="left">Join discord server</h3>
+<p align="left">
+<a href="https://discord.gg/https://discord.com/invite/nRTFb8FhAR" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="https://discord.com/invite/nRTFb8FhAR" height="60" width="80" /></a>
+</p>
+
+
+
 ## Features
 
 - **Blocks YouTube Shorts:**
@@ -27,9 +34,7 @@ Clear Space is a chrome extension which helps you to remove distractions from sh
 
 ---
 
-## Installation
-
-**Clear space is currently submitted for review on chrome web store and will be available to users soon.**
+## Installation
 
 To install Clear Space in your browser, follow the steps mentioned below :
 
