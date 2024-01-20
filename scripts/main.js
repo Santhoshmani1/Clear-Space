@@ -1,7 +1,7 @@
 (() => {
-  chrome.runtime.onMessage.addListener((obj, sender, response) => {
+  browser.runtime.onMessage.addListener((obj, sender, response) => {
     // listening for tab switches from background.js
-    // To access Youtube main page , watch page and shorts page.
+    // To access Youtube main page, watch page, shorts page, and Instagram reels page.
     const { page } = obj;
     console.log("on " + page + " page");
     if (page == "watch") {
