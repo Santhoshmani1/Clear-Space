@@ -1,46 +1,50 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Clear Space",
   "version": "0.0.1",
   "description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
-  "icons": {
-    "16": "images/icon.png",
-    "32": "images/icon.png",
-    "48": "images/icon.png",
-    "64": "images/icon.png",
-    "128": "images/icon.png"
+  "icons":{
+    "16":"images/icon.png",
+    "32":"images/icon.png",
+    "48":"images/icon.png",
+    "64":"images/icon.png",
+    "128":"images/icon.png"
   },
   "permissions": [
-    "storage",
-    "tabs",
-    "activeTab",
-    "https://*.youtube.com/*",
-    "https://*.instagram.com/*"
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "scripting",
+    "tabs"
   ],
+  "host_permissions": ["https://*.youtube.com/*","https://.instagram.com/*"],
   "background": {
-    "scripts": ["scripts/background.js"],
-    "persistent": false
+    "service_worker": "scripts/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://*.youtube.com/*", "https://*.instagram.com/*"],
+      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"],
       "js": ["scripts/main.js"],
       "css": ["popup.css"]
     }
   ],
-  "browser_action": {
-    "default_icon": {
-      "16": "images/icon.png",
-      "48": "images/icon.png",
-      "128": "images/icon.png"
-    },
-    "default_title": "Clear Space",
-    "default_popup": "popup.html"
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Clear Space"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      }
+    ]
   },
   "web_accessible_resources": [
     {
       "resources": ["redirect.html"],
-      "matches": ["https://*.youtube.com/*", "https://*.instagram.com/*"]
+      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"]
     }
   ]
 }
