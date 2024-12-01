@@ -62,32 +62,58 @@ function cleanHomePage() {
     miniShorts.remove();
   }
 
-  setTimeout(() => {
-    const navItems = document.querySelectorAll(
-      "#items>ytd-guide-entry-renderer"
-    );
-    console.log(navItems);
-    if (navItems[1].getAttribute("aria-label") === "Shorts") {
-      navItems[1].remove(); // the shorts Item is the second in the first guide entry renderer.
-    }
-  }, 2000);
+  const banners = document.querySelectorAll(".ytd-statement-banner-renderer");
+  banners.forEach((banner) => {
+    banner.remove();
+  });
+
+  const dismissibleFeaturedBanner = document.querySelectorAll(".ytd-brand-video-shelf-renderer");
+  dismissibleFeaturedBanner.forEach((banner) => {
+    banner.remove();
+  });
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      const navItems = document.querySelectorAll(
+        "#items>ytd-guide-entry-renderer"
+      );
+      if (navItems[1] && navItems[1].getAttribute("aria-label") === "Shorts") {
+        navItems[1].remove(); // the shorts Item is the second in the first guide entry renderer.
+        observer.disconnect();
+      }
+
+      const exploreItems = document.querySelectorAll("ytd-guide-entry-renderer");
+      // remove items from index 21 to last
+      // Below 21 items are related to Navigation and channel subscriptions
+      // from index 21 to last are explore items and Promotional links (Not required)
+      for (let i = 21; i < exploreItems.length; i++) {
+        exploreItems[i].remove();
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
-setTimeout(() => {
-  cleanHomePage();
-  console.clear();
-}, 3000);
+
 
 function blockShortsPage() {
   // Adding time interval to eliminate execution of scripting
   // before DOM is completely loaded.
-  setInterval(() => {
-    const shorts = document.querySelector(
-      "#page-manager > ytd-shorts > div.navigation-container.style-scope.ytd-shorts"
-    );
-    shorts.remove();
-    document.location.href = "redirect.html";
-  }, 1000);
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      const shorts = document.querySelector(
+        "#page-manager > ytd-shorts > div.navigation-container.style-scope.ytd-shorts"
+      );
+      if (shorts) {
+        shorts.remove();
+        document.location.href = "redirect.html";
+        observer.disconnect();
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 function blockReelsPage() {
