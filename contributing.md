@@ -36,6 +36,7 @@ git checkout -b <your-branch-name>
 5. Push your changes to the remote upstream repository:
 
 ```bash
+git commit -m "feat: implemented feature x"
 git push origin <your-branch-name>
 ```
 
@@ -50,16 +51,3 @@ git push origin <your-branch-name>
 - Hands on tutorial on [Developing a chrome extension](https://www.youtube.com/watch?v=0n809nd4Zu4&t=686s) by FreeCode Camp
 
 ---
-
-
-## Tips for Contributing
-
-- Write clear commit messages that describe your changes.
-- Be respectful and professional in all interactions with other contributors.
-
----
-
-
-## License
-
-Clear Space is licensed under the MIT License. By contributing to Clear Space, you agree to license your contributions under the same license. See the [LICENSE](https://github.com/Santhoshmani1/Clear-Space/blob/main/LICENSE) file for more information.

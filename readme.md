@@ -1,6 +1,6 @@
 # Clear space
 
-![Clear space icon](./images/icon.png)
+![Clear space icon](./assets/icon.png)
 
 ## What is Clear Space ?
 
@@ -13,7 +13,7 @@ Clear Space is a chrome extension which helps you to remove distractions from sh
 - **Blocks YouTube Shorts:**
   blocks the Shorts tab on YouTube and prevent users from getting distracted by short videos.
   
-  ![Shorts-tab-removed-image](./images//shortstab-removed.png)
+  ![Shorts-tab-removed-image](./assets/shortstab-removed.png)
 
 - **Blocks Comments:**
   blocks the comments section on YouTube and prevents you from getting distracted by comments.
@@ -21,37 +21,15 @@ Clear Space is a chrome extension which helps you to remove distractions from sh
 - **Blocks Recommendations:**
   This feature blocks the recommendations section on YouTube and prevent users from getting distracted by recommended videos.
   
-  ![youtube-watch-page](./images/watch-page.png)
+  ![youtube-watch-page](./assets/watch-page.png)
   
-  ![watch-page-with-clear-space](./images/watch-page-focussed.png)
+  ![watch-page-with-clear-space](./assets/watch-page-focussed.png)
 
 ---
 
 ## Installation
 
-**Clear space is currently submitted for review on chrome web store and will be available to users soon.**
-
-To install Clear Space in your browser, follow the steps mentioned below :
-
-1. Download [zip folder](https://github.com/Santhoshmani1/Clear-Space/archive/refs/heads/main.zip) of the repository and extract the file contents.
-
-    ![Clear-space-zip](./images/clear-space-zip.png)
-   
-2. Go to [chrome://extensions](chrome://extensions/) page and turn on developer mode.
-   
-   ![](./images//developer-mode.png)
-   
-3. Click on load unpacked and select the clear space folder.
-
-   ![Load Unpacked](./images/load-unpacked.png)
-
-4. Once the extension is installed, you will see the Clear Space icon in the top right corner of your browser.
-   
-5. Tap on the icon and allow the extension to access Youtube.
-   
-   ![extension-loaded-image](./images/loaded-image.png)
-
----
+See [Installation guide](./docs/installation.md) for detailed step by step instructions on how to install the latest version.
 
 ## What's next for clear-space
 
@@ -61,6 +39,7 @@ To install Clear Space in your browser, follow the steps mentioned below :
 ## Contributing
 
 All contributions are welcome.
+
 Please read our [CONTRIBUTING.md](https://github.com/santhoshmani1/Clear-space/blob/main/contributing.md) for additional help and resources for getting started.
 
 ## LICENSE
