@@ -1,0 +1,78 @@
+body {
+	font-family: "Segoe UI", Roboto, sans-serif;
+	background-color: #121212;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.popup-container {
+	padding: 16px;
+	max-width: zz;
+	background-color: #1e1e1e;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+	font-size: 18px;
+	margin-bottom: 12px;
+	text-align: center;
+	color: #ffffff;
+}
+
+form {y
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.section-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+
+.section-header img {
+	height: 20px;
+	width: 20px;
+	border-radius: 4px;
+}
+
+.section-header h2 {
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+.grid-options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px 12px;
+}
+
+label {
+	font-size: 18px;
+	color: #ccc;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.save-button {
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #007bff;
+	color: white;
+	font-weight: 600;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+	background-color: #0056b3;
+}
