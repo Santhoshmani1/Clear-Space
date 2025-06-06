@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Space - site block Manager</title>
+    <link rel="stylesheet" href="../styles/siteblockmanager.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="../js/block-websites.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Clear Space - Site block Manager</h1>
+
+        <!-- New Website adder -->
+        <section id="adder">
+            <label for="new-website">
+                <span class="material-icons">search</span>
+                <input type="new-website" id="new-website" placeholder="Type / paste site URL to block">
+            </label>
+            <button class="add-website-btn" id="new-website-adder-btn">
+                <span class="material-icons">add</span>
+                <span>Add</span>
+            </button>
+        </section>
+
+        <!-- Blocked websites list -->
+        <section id="add-website">
+            <h2>Blocked websites</h2>
+            <div class="blocked-list"></div>
+        </section>
+
+        <!-- Suggestions list -->
+        <section id="suggestions-container">
+            <h2>Suggested</h2>
+            <div id="suggestions"></div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
