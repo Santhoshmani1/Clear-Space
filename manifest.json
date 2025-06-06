@@ -1,50 +1,37 @@
 {
-  "manifest_version": 3,
-  "name": "Clear Space",
-  "version": "0.0.1",
-  "description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
-  "icons":{
-    "16":"images/icon.png",
-    "32":"images/icon.png",
-    "48":"images/icon.png",
-    "64":"images/icon.png",
-    "128":"images/icon.png"
-  },
-  "permissions": [
-    "declarativeNetRequestWithHostAccess",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback",
-    "scripting",
-    "tabs"
-  ],
-  "host_permissions": ["https://*.youtube.com/*","https://.instagram.com/*"],
-  "background": {
-    "service_worker": "scripts/background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"],
-      "js": ["scripts/main.js"],
-      "css": ["popup.css"]
-    }
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Clear Space"
-  },
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "ruleset_1",
-        "enabled": true,
-        "path": "rules_1.json"
-      }
-    ]
-  },
-  "web_accessible_resources": [
-    {
-      "resources": ["redirect.html"],
-      "matches": ["https://*.youtube.com/*","https://*.instagram.com/*"]
-    }
-  ]
+	"manifest_version": 3,
+	"name": "Clear Space",
+	"version": "0.0.1",
+	"description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
+	"icons": {
+		"16": "assets/icon.png"
+	},
+	"permissions": [
+		"tabs",
+		"storage",
+		"activeTab"
+	],
+	"host_permissions": [
+		"<all_urls>"
+	],
+	"background": {
+		"service_worker": "src/scripts/background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"src/scripts/main.js"
+			],
+			"css": [
+				"src/styles/popup.css"
+			]
+		}
+	],
+	"action": {
+		"default_popup": "src/html/popup.html",
+		"default_title": "Clear Space"
+	}
 }
