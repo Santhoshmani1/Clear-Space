@@ -4,7 +4,7 @@ body {
 	background-color: #000;
 }
 
-h1 {
+h1#clearspace-main-heading {
 	color: #069aed;
 	font-family: "Open Sans", sans-serif;
 	display: flex;
@@ -87,14 +87,6 @@ main {
 	text-decoration: underline;
 }
 
-a {
-	font-size: 18px;
-	color: #4eb6f7;
-}
-
-a:hover {
-	color: #069;
-}
 
 @keyframes slidein {
 	from {

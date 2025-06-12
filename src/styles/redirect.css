@@ -18,44 +18,15 @@ div {
     align-items: center;
 }
 
-h1 {
+h1#clearspace-main-heading {
     color: #069aed;
     font-size: 30px;
     line-height: 12px;
 }
 
-p {
+p#stay-focussed {
     width: 80%;
     text-align: center;
     font-size: 1.4rem;
     color: white;
-}
-
-button {
-    border: 2px solid #0767f4;
-    color: #069aed;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 6px;
-    width: 50%;
-    letter-spacing: 1px;
-}
-
-button:hover {
-    background-color: #ffffff;
-    color: #2565e4;
-    cursor: pointer;
-    transition-duration: 300ms;
-}
-
-a {
-    text-decoration: none;
-    color: #0767f4;
-}
-
-@media (max-width: 700px) {
-    div {
-        margin: 0 auto;
-        width: auto;
-    }
 }
