@@ -14,7 +14,7 @@ h1#clearspace-main-heading {
 	padding: 20px;
 }
 
-main {
+main#popup-main {
 	min-width: 400px;
 	height: 60vw;
 }

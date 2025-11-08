@@ -1,4 +1,4 @@
-body {
+body.clearspace-redirect-body {
     background-color: black;
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@ body {
         "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-div {
+div.clearspace-redirect-container {
     width: 600px;
     margin: 5em auto;
     padding: 2em;
@@ -24,7 +24,7 @@ h1#clearspace-main-heading {
     line-height: 12px;
 }
 
-p#stay-focussed {
+p#clearspace-stay-focussed {
     width: 80%;
     text-align: center;
     font-size: 1.4rem;
