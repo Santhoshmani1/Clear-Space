@@ -4,7 +4,10 @@
 	"version": "0.0.1",
 	"description": "Remove distractions from short form content and helps to focus on the productive things that matter.",
 	"icons": {
-		"16": "assets/icon.png"
+		"16": "assets/icons/logo-16.png",
+		"32": "assets/icons/logo-32.png",
+		"48": "assets/icons/logo-48.png",
+		"128": "assets/icons/logo-128.png"
 	},
 	"permissions": [
 		"tabs",
