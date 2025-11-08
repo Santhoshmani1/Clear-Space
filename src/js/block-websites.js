@@ -1,6 +1,6 @@
 const recommendationsDiv = document.querySelector("#suggestions");
 const blockedWebsitesSection = document.querySelector("#add-website");
-const addWebsiteBtn = document.querySelector("button#new-website-adder-btn");
+const addWebsiteBtn = document.querySelector("#new-website-adder-btn");
 
 const ADULT_GROUP = "__adult__";
 const topAdultWebsites = [
@@ -120,92 +120,74 @@ const Storage = {
 		const { websites } = await chrome.storage.local.get({ websites: [] });
 		return websites;
 	},
-
 	async getWebsites() {
 		const rawList = await this.getRawList();
-		return rawList.flatMap((site) =>
-			site === ADULT_GROUP ? topAdultWebsites : site,
-		);
+		return rawList.flatMap((site) => (site === ADULT_GROUP ? topAdultWebsites : site));
 	},
-
 	async addWebsite(website) {
 		const rawList = await this.getRawList();
-
-		// Keep ADULT_GROUP as a single entry
 		if (website === ADULT_GROUP) {
-			if (!rawList.includes(ADULT_GROUP)) {
-				rawList.push(ADULT_GROUP);
-			}
+			if (!rawList.includes(ADULT_GROUP)) rawList.push(ADULT_GROUP);
 		} else if (!rawList.includes(website)) {
 			rawList.push(website);
 		}
-
 		await chrome.storage.local.set({ websites: rawList });
 	},
-
-	// 
 	async removeWebsite(website) {
 		const rawList = await this.getRawList();
-		const updatedWebsites = rawList.filter((w) => w !== website);
-		await chrome.storage.local.set({ websites: updatedWebsites });
+		const updated = rawList.filter((w) => w !== website);
+		await chrome.storage.local.set({ websites: updated });
 	},
 };
 
+// DOM Element Creation
 function createWebsiteElement(website, action, onClickHandler) {
-	const websiteDiv = document.createElement("div");
-	websiteDiv.classList.add("blockable-website");
+	const wrapper = document.createElement("div");
+	wrapper.classList.add("blockable-website");
 
-	const imgElement = document.createElement("img");
-	if (website === ADULT_GROUP) {
-		imgElement.src = "../../../assets/under-18.png";
-	} else {
-		imgElement.src = `https://www.google.com/s2/favicons?domain=${website}`;
-	}
-	imgElement.alt = website;
+	const img = document.createElement("img");
+	img.src =
+		website === ADULT_GROUP
+			? "../../../assets/under-18.png"
+			: `https://www.google.com/s2/favicons?domain=${website}`;
+	img.alt = website;
 
 	const label = document.createElement("label");
 	label.textContent = website === ADULT_GROUP ? "Adult Websites" : website;
 
-	const materialIconSpan = document.createElement("span");
-	materialIconSpan.textContent = action;
-	materialIconSpan.classList.add("material-icons");
-
-	const textSpan = document.createElement("span");
-	textSpan.textContent = action === "delete" ? "remove" : "Add";
-
 	const button = document.createElement("button");
 	button.classList.add(`${action}-website-btn`);
-	button.appendChild(materialIconSpan);
-	button.appendChild(textSpan);
+	button.innerHTML = `
+    <span class="material-icons">${action}</span>
+    <span>${action === "delete" ? "remove" : "Add"}</span>
+  `;
 	button.addEventListener("click", onClickHandler);
 
-	websiteDiv.appendChild(imgElement);
-	websiteDiv.appendChild(label);
-	websiteDiv.appendChild(button);
-	return websiteDiv;
+	wrapper.append(img, label, button);
+	return wrapper;
 }
 
 async function renderBlockedWebsites() {
 	const rawList = await Storage.getRawList();
-	const container =
-		blockedWebsitesSection.querySelector(".blocked-list") ||
-		(() => {
-			const newDiv = document.createElement("div");
-			newDiv.className = "blocked-list";
-			blockedWebsitesSection.appendChild(newDiv);
-			return newDiv;
-		})();
 
+	let container = blockedWebsitesSection.querySelector(".blocked-list");
+	if (!container) {
+		container = document.createElement("div");
+		container.className = "blocked-list";
+		blockedWebsitesSection.appendChild(container);
+	}
 	container.innerHTML = "";
 
-	rawList.forEach((website) => {
-		const element = createWebsiteElement(website, "delete", async () => {
-			await Storage.removeWebsite(website);
-			renderBlockedWebsites();
-			createRecommendations();
-		});
-		container.appendChild(element);
-	});
+	const fragment = document.createDocumentFragment();
+	for (const website of rawList) {
+		fragment.appendChild(
+			createWebsiteElement(website, "delete", async () => {
+				await Storage.removeWebsite(website);
+				refreshUI();
+			})
+		);
+	}
+	container.appendChild(fragment);
 }
 
 async function createRecommendations() {
@@ -219,28 +201,37 @@ async function createRecommendations() {
 	];
 
 	recommendationsDiv.innerHTML = "";
+	const fragment = document.createDocumentFragment();
+
 	recommended
 		.filter((site) => !rawList.includes(site))
 		.forEach((site) => {
-			const element = createWebsiteElement(site, "add", async () => {
-				await Storage.addWebsite(site);
-				renderBlockedWebsites();
-				createRecommendations();
-			});
-			recommendationsDiv.appendChild(element);
+			fragment.appendChild(
+				createWebsiteElement(site, "add", async () => {
+					await Storage.addWebsite(site);
+					refreshUI();
+				})
+			);
 		});
+
+	recommendationsDiv.appendChild(fragment);
+}
+
+function refreshUI() {
+	renderBlockedWebsites();
+	createRecommendations();
 }
 
 async function addNewWebsite() {
-	const newWebsiteInput = document.querySelector("input#new-website");
-	const rawInput = newWebsiteInput?.value.trim();
+	const input = document.querySelector("#new-website");
+	const rawInput = input?.value.trim();
 	const sanitized = sanitizeWebsite(rawInput);
 
 	if (!rawInput || !isValidWebsite(sanitized)) {
 		alert("Please enter a valid website.");
 		return;
 	}
-	
+
 	const websites = await Storage.getWebsites();
 	if (websites.includes(sanitized)) {
 		alert(`This website (${sanitized}) is already in the blocklist.`);
@@ -248,12 +239,9 @@ async function addNewWebsite() {
 	}
 
 	await Storage.addWebsite(sanitized);
-	newWebsiteInput.value = "";
-	renderBlockedWebsites();
-	createRecommendations();
+	input.value = "";
+	refreshUI();
 }
 
 addWebsiteBtn.addEventListener("click", addNewWebsite);
-
-renderBlockedWebsites();
-createRecommendations();
+refreshUI();
