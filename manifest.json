@@ -15,7 +15,13 @@
 		"activeTab"
 	],
 	"host_permissions": [
-		"<all_urls>"
+		"*://*.youtube.com/*",
+		"*://*.instagram.com/*",
+		"*://*.twitter.com/*",
+		"*://*.x.com/*",
+		"*://*.facebook.com/*",
+		"*://*.linkedin.com/*",
+		"https://blocklistproject.github.io/"
 	],
 	"background": {
 		"service_worker": "src/scripts/background.js"
@@ -36,5 +42,6 @@
 	"action": {
 		"default_popup": "src/html/popup.html",
 		"default_title": "Clear Space"
-	}
+	},
+	"incognito": "split"
 }
