@@ -3,108 +3,12 @@ const blockedWebsitesSection = document.querySelector("#add-website");
 const addWebsiteBtn = document.querySelector("#new-website-adder-btn");
 
 const ADULT_GROUP = "__adult__";
-const topAdultWebsites = [
-	"pornhub.com",
-	"xvideos.com",
-	"xnxx.com",
-	"xhamster.com",
-	"redtube.com",
-	"youporn.com",
-	"brazzers.com",
-	"youjizz.com",
-	"beeg.com",
-	"tnaflix.com",
-	"spankbang.com",
-	"hclips.com",
-	"efukt.com",
-	"porndig.com",
-	"slutload.com",
-	"fantasti.cc",
-	"fux.com",
-	"drtuber.com",
-	"motherless.com",
-	"javhd.com",
-	"iceporn.com",
-	"pornerbros.com",
-	"nuvid.com",
-	"empflix.com",
-	"3movs.com",
-	"porn.com",
-	"xtube.com",
-	"mofosex.com",
-	"bangbros.com",
-	"yespornplease.com",
-	"hqporner.com",
-	"hqporner.xxx",
-	"camsoda.com",
-	"livejasmin.com",
-	"cam4.com",
-	"mydirtyhobby.com",
-	"sextvx.com",
-	"nudevista.com",
-	"tubegalore.com",
-	"tnaflix.in",
-	"freudbox.com",
-	"hotmovs.com",
-	"extremetube.com",
-	"homepornbay.com",
-	"vidz.com",
-	"eporner.com",
-	"sheshaft.com",
-	"realgfporn.com",
-	"watchmygf.me",
-	"privatehomeclips.com",
-	"voyeurhit.com",
-	"analdin.com",
-	"sunporno.com",
-	"pornrabbit.com",
-	"xozilla.com",
-	"fuxporn.com",
-	"pornhd.com",
-	"xxxbunker.com",
-	"hdzog.com",
-	"milfzr.com",
-	"pornhat.com",
-	"maturetubehere.com",
-	"mypornmotion.com",
-	"pinkrod.com",
-	"pornheed.com",
-	"pornoxo.com",
-	"sexvid.xxx",
-	"heavy-r.com",
-	"myfreecams.com",
-	"freecamsexposed.com",
-	"leakgirls.com",
-	"desixnxx.com",
-	"tubepornclassic.com",
-	"asiatengoku.com",
-	"sxyprn.com",
-	"camwhores.tv",
-	"nudogram.com",
-	"youav.com",
-	"voyeurweb.com",
-	"xnxx.tv",
-	"pichunter.com",
-	"milfhunter.com",
-	"xossip.com",
-	"onlyfans.com",
-	"eroticmonkey.ch",
-	"bokepindonesia.org",
-	"javfor.me",
-	"javcl.com",
-	"javhub.net",
-	"javstream.com",
-	"kink.com",
-	"newgrounds.com/portal/view",
-	"ebonytgp.com",
-	"porn300.com",
-	"pornmaki.com",
-	"openpornvideos.com",
-	"homemoviestube.com",
-	"see.xxx",
-	"fucktube.com",
-	"tube8.com",
-];
+const GET_ADULT_WEBSITES = 'getAdultWebsites'; // Action for messaging
+
+async function fetchAdultWebsites() {
+	// Request the list from the background script
+	return chrome.runtime.sendMessage({ action: GET_ADULT_WEBSITES });
+}
 
 // Returns the root domain address by trimming the protocol
 function sanitizeWebsite(url) {
@@ -122,7 +26,14 @@ const Storage = {
 	},
 	async getWebsites() {
 		const rawList = await this.getRawList();
-		return rawList.flatMap((site) => (site === ADULT_GROUP ? topAdultWebsites : site));
+
+		if (rawList.includes(ADULT_GROUP)) {
+			const adultSites = await fetchAdultWebsites();
+			const otherSites = rawList.filter(site => site !== ADULT_GROUP);
+			return [...otherSites, ...adultSites];
+		}
+
+		return rawList;
 	},
 	async addWebsite(website) {
 		const rawList = await this.getRawList();

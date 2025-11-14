@@ -1,115 +1,41 @@
 const ADULT_GROUP = "__adult__";
+const GET_ADULT_WEBSITES = 'getAdultWebsites'; // Action for messaging
+const PORN_LIST_URL = 'https://blocklistproject.github.io/Lists/alt-version/porn-nl.txt';
 
-const topAdultWebsites = [
-	"pornhub.com",
-	"xvideos.com",
-	"xnxx.com",
-	"xhamster.com",
-	"redtube.com",
-	"youporn.com",
-	"brazzers.com",
-	"youjizz.com",
-	"beeg.com",
-	"tnaflix.com",
-	"spankbang.com",
-	"hclips.com",
-	"efukt.com",
-	"porndig.com",
-	"slutload.com",
-	"fantasti.cc",
-	"fux.com",
-	"drtuber.com",
-	"motherless.com",
-	"javhd.com",
-	"iceporn.com",
-	"pornerbros.com",
-	"nuvid.com",
-	"empflix.com",
-	"3movs.com",
-	"porn.com",
-	"xtube.com",
-	"mofosex.com",
-	"bangbros.com",
-	"yespornplease.com",
-	"hqporner.com",
-	"hqporner.xxx",
-	"camsoda.com",
-	"livejasmin.com",
-	"cam4.com",
-	"mydirtyhobby.com",
-	"sextvx.com",
-	"nudevista.com",
-	"tubegalore.com",
-	"tnaflix.in",
-	"freudbox.com",
-	"hotmovs.com",
-	"extremetube.com",
-	"homepornbay.com",
-	"vidz.com",
-	"eporner.com",
-	"sheshaft.com",
-	"realgfporn.com",
-	"watchmygf.me",
-	"privatehomeclips.com",
-	"voyeurhit.com",
-	"analdin.com",
-	"sunporno.com",
-	"pornrabbit.com",
-	"xozilla.com",
-	"fuxporn.com",
-	"pornhd.com",
-	"xxxbunker.com",
-	"hdzog.com",
-	"milfzr.com",
-	"pornhat.com",
-	"maturetubehere.com",
-	"mypornmotion.com",
-	"pinkrod.com",
-	"pornheed.com",
-	"pornoxo.com",
-	"sexvid.xxx",
-	"heavy-r.com",
-	"myfreecams.com",
-	"freecamsexposed.com",
-	"leakgirls.com",
-	"desixnxx.com",
-	"tubepornclassic.com",
-	"asiatengoku.com",
-	"sxyprn.com",
-	"camwhores.tv",
-	"nudogram.com",
-	"youav.com",
-	"voyeurweb.com",
-	"xnxx.tv",
-	"pichunter.com",
-	"milfhunter.com",
-	"xossip.com",
-	"onlyfans.com",
-	"eroticmonkey.ch",
-	"bokepindonesia.org",
-	"javfor.me",
-	"javcl.com",
-	"javhub.net",
-	"javstream.com",
-	"kink.com",
-	"newgrounds.com/portal/view",
-	"ebonytgp.com",
-	"porn300.com",
-	"pornmaki.com",
-	"openpornvideos.com",
-	"homemoviestube.com",
-	"see.xxx",
-	"fucktube.com",
-	"tube8.com",
-];
+let topAdultWebsites = [];
+
+async function fetchAdultWebsites() {
+	if (topAdultWebsites.length > 0) return topAdultWebsites;
+
+	try {
+		const response = await fetch(PORN_LIST_URL);
+		if (!response.ok) {
+			console.error('Failed to fetch adult websites list:', response.statusText);
+			return [];
+		}
+		const text = await response.text();
+		topAdultWebsites = text.split('\n').filter(line => line && !line.startsWith('#'));
+		return topAdultWebsites;
+	} catch (error) {
+		console.error('Error fetching adult websites list:', error);
+		return [];
+	}
+}
 
 async function getBlockedWebsites() {
 	const { websites } = await chrome.storage.local.get("websites");
 	if (websites == null) {
 		return [];
 	}
+
+	if (websites.includes(ADULT_GROUP)) {
+		const adultSites = await fetchAdultWebsites();
+		const otherSites = websites.filter(site => site !== ADULT_GROUP);
+		return [...otherSites, ...adultSites];
+	}
+
 	return websites.flatMap((site) =>
-		site === ADULT_GROUP ? topAdultWebsites : site,
+		site === ADULT_GROUP ? [] : site,
 	);
 }
 
@@ -167,5 +93,16 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 	if (pageType) {
 		console.log(`Navigated to ${pageType} page:`, url);
 		chrome.tabs.sendMessage(tabId, { page: pageType });
+	}
+});
+
+// Listen for messages from other parts of the extension
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+	if (message.action === GET_ADULT_WEBSITES) {
+		fetchAdultWebsites().then(websites => {
+			sendResponse(websites);
+		});
+		// Return true to indicate you wish to send a response asynchronously
+		return true;
 	}
 });
