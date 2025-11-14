@@ -6,318 +6,277 @@
     <title>ClearSpace: Focus Settings</title>
     <link rel="stylesheet" href="../styles/blocked-features.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <main class="popup-container">
-        <h1>Block Distractions</h1>
-        <section class="feature-section">
-            <div class="section-header">
-                <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube Logo" />
-                <h2>YouTube</h2>
-                <button class="select-all-btn" data-section="yt">
-                    <span class="material-icons">select_all</span>
-                    <span>Select All</span>
-                </button>
-            </div>
-            <div class="grid-options">
-                <label class="switch-label">
-                    <span class="feature-name">Feed</span>
-                    <div class="switch">
-                        <input type="checkbox" name="ytFeed" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Subscriptions</span>
-                    <div class="switch">
-                        <input type="checkbox" name="ytSubscriptions" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Shorts</span>
-                    <div class="switch">
-                        <input type="checkbox" name="ytShorts" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Recommendations</span>
-                    <div class="switch">
-                        <input type="checkbox" name="ytRecommendations" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Comments</span>
-                    <div class="switch">
-                        <input type="checkbox" name="ytComments" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-            </div>
-        </section>
-        <section class="feature-section">
-            <div class="section-header">
-                <img src="https://www.google.com/s2/favicons?domain=x.com" alt="Twitter Logo" />
-                <h2>Twitter</h2>
-                <button class="select-all-btn" data-section="tw">
-                    <span class="material-icons">select_all</span>
-                    <span>Select All</span>
-                </button>
-            </div>
-            <div class="grid-options">
-                <label class="switch-label">
-                    <span class="feature-name">Feed</span>
-                    <div class="switch">
-                        <input type="checkbox" name="twFeed" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Trends</span>
-                    <div class="switch">
-                        <input type="checkbox" name="twTrends" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Notifications</span>
-                    <div class="switch">
-                        <input type="checkbox" name="twNotifications" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Messages</span>
-                    <div class="switch">
-                        <input type="checkbox" name="twMessages" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Lists</span>
-                    <div class="switch">
-                        <input type="checkbox" name="twLists" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-            </div>
-        </section>
-        <section class="feature-section">
-            <div class="section-header">
-                <img src="https://www.google.com/s2/favicons?domain=facebook.com" alt="Facebook Logo" />
-                <h2>Facebook</h2>
-                <button class="select-all-btn" data-section="fb">
-                    <span class="material-icons">select_all</span>
-                    <span>Select All</span>
-                </button>
-            </div>
-            <div class="grid-options">
-                <label class="switch-label">
-                    <span class="feature-name">Feed</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbFeed" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Groups</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbGroups" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Marketplace</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbMarketplace" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Events</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbEvents" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Stories</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbStories" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Notifications</span>
-                    <div class="switch">
-                        <input type="checkbox" name="fbNotifications" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-            </div>
-        </section>
-        <section class="feature-section">
-            <div class="section-header">
-                <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn Logo" />
-                <h2>LinkedIn</h2>
-                <button class="select-all-btn" data-section="li">
-                    <span class="material-icons">select_all</span>
-                    <span>Select All</span>
-                </button>
-            </div>
-            <div class="grid-options">
-                <label class="switch-label">
-                    <span class="feature-name">Stories</span>
-                    <div class="switch">
-                        <input type="checkbox" name="liStories" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Feed</span>
-                    <div class="switch">
-                        <input type="checkbox" name="liFeed" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Messaging</span>
-                    <div class="switch">
-                        <input type="checkbox" name="liMessaging" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Notifications</span>
-                    <div class="switch">
-                        <input type="checkbox" name="liNotifications" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-            </div>
-        </section>
-        <section class="feature-section">
-            <div class="section-header">
-                <img src="https://www.google.com/s2/favicons?domain=instagram.com" alt="Instagram Logo" />
-                <h2>Instagram</h2>
-                <button class="select-all-btn" data-section="ig">
-                    <span class="material-icons">select_all</span>
-                    <span>Select All</span>
-                </button>
-            </div>
-            <div class="grid-options">
-                <label class="switch-label">
-                    <span class="feature-name">Stories</span>
-                    <div class="switch">
-                        <input type="checkbox" name="igStories" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Reels</span>
-                    <div class="switch">
-                        <input type="checkbox" name="igReels" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Feed</span>
-                    <div class="switch">
-                        <input type="checkbox" name="igFeed" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-                <label class="switch-label">
-                    <span class="feature-name">Notifications / Messages</span>
-                    <div class="switch">
-                        <input type="checkbox" name="igExtras" />
-                        <span class="slider">
-                            <span class="material-icons on-icon">toggle_on</span>
-                            <span class="material-icons off-icon">toggle_off</span>
-                        </span>
-                    </div>
-                </label>
-            </div>
-        </section>
+    <div class="container">
+        <header class="page-header">
+            <h1>Block Distractions</h1>
+            <p>Select features to block on your favorite social media sites to create a more focused environment.</p>
+        </header>
 
-        <button id="saveSettings" class="save-button">
-            <span class="material-icons">save</span>
-            Save Settings
-        </button>
-    </main>
+        <main class="sections-container">
+            <section class="feature-section">
+                <div class="section-header">
+                    <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube Logo" />
+                    <h2>YouTube</h2>
+                    <button class="select-all-btn" data-section="yt">
+                        <span class="material-icons">done_all</span>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="grid-options">
+                    <label class="switch-label" for="ytFeed">
+                        <span class="feature-name">Feed</span>
+                        <div class="switch">
+                            <input type="checkbox" name="ytFeed" />
+                            <span class="slider"></span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="ytSubscriptions">
+                        <span class="feature-name">Subscriptions</span>
+                        <div class="switch">
+                            <input type="checkbox" name="ytSubscriptions" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="ytShorts">
+                        <span class="feature-name">Shorts</span>
+                        <div class="switch">
+                            <input type="checkbox" name="ytShorts" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="ytRecommendations">
+                        <span class="feature-name">Recommendations</span>
+                        <div class="switch">
+                            <input type="checkbox" name="ytRecommendations" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="ytComments">
+                        <span class="feature-name">Comments</span>
+                        <div class="switch">
+                            <input type="checkbox" name="ytComments" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section class="feature-section">
+                <div class="section-header">
+                    <img src="https://www.google.com/s2/favicons?domain=x.com" alt="Twitter Logo" />
+                    <h2>Twitter</h2>
+                    <button class="select-all-btn" data-section="tw">
+                        <span class="material-icons">done_all</span>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="grid-options">
+                    <label class="switch-label" for="twFeed">
+                        <span class="feature-name">Feed</span>
+                        <div class="switch">
+                            <input type="checkbox" name="twFeed" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="twTrends">
+                        <span class="feature-name">Trends</span>
+                        <div class="switch">
+                            <input type="checkbox" name="twTrends" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="twNotifications">
+                        <span class="feature-name">Notifications</span>
+                        <div class="switch">
+                            <input type="checkbox" name="twNotifications" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="twMessages">
+                        <span class="feature-name">Messages</span>
+                        <div class="switch">
+                            <input type="checkbox" name="twMessages" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="twLists">
+                        <span class="feature-name">Lists</span>
+                        <div class="switch">
+                            <input type="checkbox" name="twLists" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section class="feature-section">
+                <div class="section-header">
+                    <img src="https://www.google.com/s2/favicons?domain=facebook.com" alt="Facebook Logo" />
+                    <h2>Facebook</h2>
+                    <button class="select-all-btn" data-section="fb">
+                        <span class="material-icons">done_all</span>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="grid-options">
+                    <label class="switch-label" for="fbFeed">
+                        <span class="feature-name">Feed</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbFeed" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="fbGroups">
+                        <span class="feature-name">Groups</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbGroups" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="fbMarketplace">
+                        <span class="feature-name">Marketplace</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbMarketplace" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="fbEvents">
+                        <span class="feature-name">Events</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbEvents" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="fbStories">
+                        <span class="feature-name">Stories</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbStories" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="fbNotifications">
+                        <span class="feature-name">Notifications</span>
+                        <div class="switch">
+                            <input type="checkbox" name="fbNotifications" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section class="feature-section">
+                <div class="section-header">
+                    <img src="https://www.google.com/s2/favicons?domain=linkedin.com" alt="LinkedIn Logo" />
+                    <h2>LinkedIn</h2>
+                    <button class="select-all-btn" data-section="li">
+                        <span class="material-icons">done_all</span>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="grid-options">
+                    <label class="switch-label" for="liStories">
+                        <span class="feature-name">Stories</span>
+                        <div class="switch">
+                            <input type="checkbox" name="liStories" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="liFeed">
+                        <span class="feature-name">Feed</span>
+                        <div class="switch">
+                            <input type="checkbox" name="liFeed" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="liMessaging">
+                        <span class="feature-name">Messaging</span>
+                        <div class="switch">
+                            <input type="checkbox" name="liMessaging" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="liNotifications">
+                        <span class="feature-name">Notifications</span>
+                        <div class="switch">
+                            <input type="checkbox" name="liNotifications" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            <section class="feature-section">
+                <div class="section-header">
+                    <img src="https://www.google.com/s2/favicons?domain=instagram.com" alt="Instagram Logo" />
+                    <h2>Instagram</h2>
+                    <button class="select-all-btn" data-section="ig">
+                        <span class="material-icons">done_all</span>
+                        <span>Select All</span>
+                    </button>
+                </div>
+                <div class="grid-options">
+                    <label class="switch-label" for="igStories">
+                        <span class="feature-name">Stories</span>
+                        <div class="switch">
+                            <input type="checkbox" name="igStories" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="igReels">
+                        <span class="feature-name">Reels</span>
+                        <div class="switch">
+                            <input type="checkbox" name="igReels" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="igFeed">
+                        <span class="feature-name">Feed</span>
+                        <div class="switch">
+                            <input type="checkbox" name="igFeed" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                    <label class="switch-label" for="igExtras">
+                        <span class="feature-name">Notifications / Messages</span>
+                        <div class="switch">
+                            <input type="checkbox" name="igExtras" />
+                            <span class="slider">
+                            </span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <button id="saveSettings" class="save-button">
+                <span class="material-icons">save</span>
+                Save Settings
+            </button>
+        </footer>
+    </div>
 
     <script src="../js/block-features.js"></script>
 </body>
